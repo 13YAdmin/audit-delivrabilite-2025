@@ -649,6 +649,124 @@
         .code-block .keyword {
             color: #569CD6;
         }
+
+        /* Collapsible Sections */
+        .collapsible-section {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .collapsible-header {
+            padding: 25px 30px;
+            background: linear-gradient(135deg, rgba(0,163,224,0.08) 0%, rgba(0,163,224,0.02) 100%);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent);
+        }
+
+        .collapsible-header:hover {
+            background: linear-gradient(135deg, rgba(0,163,224,0.12) 0%, rgba(0,163,224,0.04) 100%);
+        }
+
+        .collapsible-header.active {
+            background: linear-gradient(135deg, rgba(0,163,224,0.15) 0%, rgba(0,163,224,0.05) 100%);
+            border-left-color: var(--success);
+        }
+
+        .collapsible-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .collapsible-icon {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible-header.active .collapsible-icon {
+            transform: rotate(90deg);
+            color: var(--success);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.3s ease;
+            padding: 0 30px;
+        }
+
+        .collapsible-content.active {
+            max-height: 10000px;
+            padding: 30px;
+            transition: max-height 0.6s ease-in, padding 0.3s ease;
+        }
+
+        /* Expand/Collapse All Buttons */
+        .control-buttons {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .control-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .expand-btn {
+            background: var(--success);
+            color: white;
+        }
+
+        .expand-btn:hover {
+            background: #6fa01e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(134,188,37,0.3);
+        }
+
+        .collapse-btn {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .collapse-btn:hover {
+            background: #3d5263;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(84,106,123,0.3);
+        }
+
+        /* Badge pour sections importantes */
+        .section-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #FF6B00;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
     </style>
 </head>
 <body>
@@ -684,6 +802,14 @@
 
     <!-- Executive Summary -->
     <div class="container">
+
+    <!-- Control Buttons -->
+    <div class="control-buttons">
+        <button class="control-btn expand-btn" onclick="expandAll()">▼ Tout Ouvrir</button>
+        <button class="control-btn collapse-btn" onclick="collapseAll()">▲ Tout Fermer</button>
+    </div>
+
+
         <section id="executive" class="executive-summary">
             <h2>Executive Summary - 13-years.com</h2>
 
@@ -776,6 +902,16 @@
 
         <!-- Comparaison Solutions -->
         <section id="solutions" class="section">
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+            <div class="collapsible-title">
+                <span class="collapsible-icon">▶</span>
+                <span>📊 Comparaison Solutions </span>
+                
+            </div>
+        </div>
+        <div class="collapsible-content">
+
             <div class="section-header">
                 <h2>Comparaison Solutions</h2>
                 <p class="subtitle">Instantly.ai vs concurrents clés</p>
@@ -852,9 +988,22 @@
                     <a href="#case-study" style="color: #FF6B00; font-weight: 600; text-decoration: underline;">→ Voir le plan de migration complet avec timeline et ROI</a>
                 </div>
             </div>
-        </section>
+        
+        </div>
+    </div>
+</section>
         <!-- DNS Architecture -->
         <section id="architecture" class="section">
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+            <div class="collapsible-title">
+                <span class="collapsible-icon">▶</span>
+                <span>🌐 Architecture DNS Complète </span>
+                <span style="font-size: 0.9rem; color: var(--secondary); font-weight: 400;">(Détails Techniques)</span>
+            </div>
+        </div>
+        <div class="collapsible-content">
+
             <div class="section-header">
                 <h2>Architecture DNS Complète</h2>
                 <p class="subtitle">Configuration de A à Z pour une délivrabilité optimale</p>
@@ -970,10 +1119,23 @@ Priorité 10: ALT4.ASPMX.L.GOOGLE.COM
                     </div>
                 </div>
             </div>
-        </section>
+        
+        </div>
+    </div>
+</section>
 
         <!-- Google Workspace Setup -->
         <section id="workspace" class="section">
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+            <div class="collapsible-title">
+                <span class="collapsible-icon">▶</span>
+                <span>📧 Configuration Google Workspace </span>
+                <span style="font-size: 0.9rem; color: var(--secondary); font-weight: 400;">(Setup)</span>
+            </div>
+        </div>
+        <div class="collapsible-content">
+
             <div class="section-header">
                 <h2>Configuration Google Workspace</h2>
                 <p class="subtitle">Setup optimal pour cold email professionnel</p>
@@ -1086,10 +1248,23 @@ Priorité 10: ALT4.ASPMX.L.GOOGLE.COM
                     </div>
                 </div>
             </div>
-        </section>
+        
+        </div>
+    </div>
+</section>
 
         <!-- Warmup Protocol -->
         <section id="warmup" class="section">
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+            <div class="collapsible-title">
+                <span class="collapsible-icon">▶</span>
+                <span>🔥 Protocole Warmup 4 Semaines </span>
+                <span style="font-size: 0.9rem; color: var(--secondary); font-weight: 400;">(Timeline)</span>
+            </div>
+        </div>
+        <div class="collapsible-content">
+
             <div class="section-header">
                 <h2>Protocole de Réchauffement</h2>
                 <p class="subtitle">4 semaines de warmup progressif pour réputation optimale</p>
@@ -1235,10 +1410,23 @@ Priorité 10: ALT4.ASPMX.L.GOOGLE.COM
                     </div>
                 </div>
             </div>
-        </section>
+        
+        </div>
+    </div>
+</section>
 
         <!-- Monitoring Tools -->
         <section id="monitoring" class="section">
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+            <div class="collapsible-title">
+                <span class="collapsible-icon">▶</span>
+                <span>📊 Outils de Monitoring </span>
+                <span style="font-size: 0.9rem; color: var(--secondary); font-weight: 400;">(16 outils)</span>
+            </div>
+        </div>
+        <div class="collapsible-content">
+
             <div class="section-header">
                 <h2>Outils de Monitoring & Vérification</h2>
                 <p class="subtitle">16 outils essentiels pour surveiller la délivrabilité</p>
@@ -1312,7 +1500,10 @@ Priorité 10: ALT4.ASPMX.L.GOOGLE.COM
                     <strong>🚨 OBLIGATOIRE:</strong> Toujours valider vos listes emails avant envoi. Un bounce rate >2% détruit votre réputation.
                 </div>
             </div>
-        </section>
+        
+        </div>
+    </div>
+</section>
 
         <!-- Workflow Sales HubSpot -->
         <section class="section">
@@ -2558,6 +2749,69 @@ include:_spf.lemlist.com include:_spf.lemwarm.com -all
                 e.preventDefault();
                 window.print();
             }
+        });
+    </script>
+
+    <!-- Collapsible Sections Script -->
+    <script>
+        // Toggle individual sections
+        function toggleSection(header) {
+            header.classList.toggle('active');
+            const content = header.nextElementSibling;
+            content.classList.toggle('active');
+        }
+
+        // Initialize collapsible sections
+        document.querySelectorAll('.collapsible-header').forEach(header => {
+            header.addEventListener('click', function() {
+                toggleSection(this);
+            });
+        });
+
+        // Expand all sections
+        function expandAll() {
+            document.querySelectorAll('.collapsible-header').forEach(header => {
+                if (!header.classList.contains('active')) {
+                    header.classList.add('active');
+                    header.nextElementSibling.classList.add('active');
+                }
+            });
+        }
+
+        // Collapse all sections
+        function collapseAll() {
+            document.querySelectorAll('.collapsible-header').forEach(header => {
+                if (header.classList.contains('active')) {
+                    header.classList.remove('active');
+                    header.nextElementSibling.classList.remove('active');
+                }
+            });
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    e.preventDefault();
+
+                    // If target is inside a collapsible, expand it first
+                    const collapsibleContent = targetSection.closest('.collapsible-content');
+                    if (collapsibleContent && !collapsibleContent.classList.contains('active')) {
+                        const header = collapsibleContent.previousElementSibling;
+                        toggleSection(header);
+
+                        // Wait for animation before scrolling
+                        setTimeout(() => {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 300);
+                    } else {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
         });
     </script>
 </body>
