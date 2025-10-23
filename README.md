@@ -55,15 +55,15 @@ Timeline complète de réchauffement progressif :
 - DNS techniquement correct mais warmup sans résultats depuis des semaines
 - Lemlist + Lemwarm inefficaces
 - Pas d'intégration HubSpot native
-- 10-15h/semaine perdues en sync manuelle
-- $88+/mois + temps perdu = ~$4,000/mois coût réel
+- 20h/semaine perdues en sync manuelle (2,000€/mois)
+- **MAILING EN PAUSE 💀** = Manque à gagner énorme pendant warmup
 
 **Solution :**
 - Migration vers Instantly.ai
 - Config auto DNS en 30 minutes
 - HubSpot natif 1-click
-- Nouveau warmup efficace
-- ROI : $3,000+/mois économisés
+- Nouveau warmup efficace **EN PARALLÈLE** (pas de pause mailing)
+- ROI : 2,000€/mois temps récupéré + Prospection continue
 
 **Timeline migration :**
 - Jour 1 : Inscription & test (30min)
@@ -99,7 +99,7 @@ Do's & Don'ts complets pour délivrabilité optimale
 - ✅ Warmup qui fonctionne vraiment
 - ✅ Prix imbattable ($37/mois warmup illimité)
 
-**ROI attendu : $36,600+/an d'économies**
+**ROI attendu : 2,000€/mois temps récupéré + Mailing continu (pas de pause prospection)**
 
 ---
 
